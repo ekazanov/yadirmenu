@@ -32,8 +32,8 @@ class MenuTk(MenuBase):
         self.return_tag = '0'
 
     def draw_menu(self):
-        from pymenu import Action
-        from pymenu import ButtonsFabric
+        from yadirmenu.pymenu import Action
+        from yadirmenu.pymenu import ButtonsFabric
         WIDTH = 50
         HEIGHT = 1
         BG = "white"
@@ -203,12 +203,3 @@ def menu_obj_fabric(menu_class):
     return None
 
 
-# MENU_TYPE = 'MenuConsole'
-# MENU_TYPE = 'MenuConsoleDialog'
-MENU_TYPE = 'MenuTk'
-
-menu_obj = menu_obj_fabric(MENU_TYPE)
-process_menu = ProcessMenu(menu_root_path=menu_path,
-                           menu_object=menu_obj)
-
-sys.exit(0)

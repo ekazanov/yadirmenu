@@ -22,3 +22,6 @@ classifiers = [
 
 [project.urls]
 Homepage = "https://github.com/ekazanov/yadirmenu"
+
+[project.scripts]
+yadirmenu = "yadirmenu.__main__:main"
