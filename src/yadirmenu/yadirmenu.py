@@ -51,7 +51,6 @@ class MenuTk(MenuBase):
         self.bf.add_button('Exit', action_obj.do_action)
         self.bf.finalize()
         self.bf.root.destroy()
-        print(f"self.return_tag = {self.return_tag}")
         return self.return_tag
 
 
