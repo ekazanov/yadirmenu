@@ -7,8 +7,6 @@ from re import sub
 
 from dotenv import dotenv_values
 
-menu_path = "/home/evgeny/projects/132_dirmenu/src/menu_test"
-
 
 class MenuBase:
 
@@ -25,33 +23,40 @@ class MenuBase:
                 continue
             return int(user_input)
 
+    def draw_menu(self):
+        """Draw menu method. To be overwritten."""
+        return 0
 
 class MenuTk(MenuBase):
 
     def __init__(self):
         self.return_tag = "0"
 
-    def draw_menu(self):
-        from yadirmenu.pymenu import Action, ButtonsFabric
 
-        WIDTH = 50
-        HEIGHT = 1
-        BG = "white"
-        FG = "black"
-        XPOZ = 400
-        YPOZ = 100
-        self.bf = ButtonsFabric(
-            xpoz=XPOZ, ypoz=YPOZ, width=WIDTH, height=HEIGHT, bg=BG, fg=FG
+    def draw_menu(self):
+        from yadirmenu.pymenu import ButtonsFabric
+        from yadirmenu.pymenu import Action
+        width = 50
+        height = 1
+        bg = "white"
+        fg = "black"
+        xpoz = 400
+        ypoz = 100
+        bf = ButtonsFabric(
+            xpoz=xpoz, ypoz=ypoz, width=width, height=height, bg=bg, fg=fg
         )
-        self.bf.use_return = False
-        self.bf.title = self.title
+        bf.use_return = False
+        bf.title = self.title
         for tag, text in self.menu_data:
-            action_obj = Action(tag, self.bf, self)
-            self.bf.add_button(text, action_obj.do_action)
-        action_obj = Action("0", self.bf, self)
-        self.bf.add_button("Exit", action_obj.do_action)
-        self.bf.finalize()
-        self.bf.root.destroy()
+            action_obj = Action(tag, bf, self)
+            bf.add_button(text, action_obj.do_action)
+        action_obj = Action("0", bf, self)
+        bf.add_button("Exit", action_obj.do_action)
+        bf.finalize()
+        bf.root.destroy()
+
+
+
         return self.return_tag
 
 
