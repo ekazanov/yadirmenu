@@ -11,14 +11,13 @@ menu_path = "/home/evgeny/projects/132_dirmenu/src/menu_test"
 
 class MenuBase:
 
-    def menu(self, title: str,
-                  menu_data: list[tuple[str, str]])->int:
+    def menu(self, title: str, menu_data: list[tuple[str, str]]) -> int:
         tags = []
         self.title = title
         self.menu_data = menu_data
-        for tag, _  in menu_data:
+        for tag, _ in menu_data:
             tags.append(tag)
-        tags.append('0')
+        tags.append("0")
         while True:
             user_input = self.draw_menu()
             if user_input not in tags:
@@ -29,26 +28,28 @@ class MenuBase:
 class MenuTk(MenuBase):
 
     def __init__(self):
-        self.return_tag = '0'
+        self.return_tag = "0"
 
     def draw_menu(self):
         from yadirmenu.pymenu import Action
         from yadirmenu.pymenu import ButtonsFabric
+
         WIDTH = 50
         HEIGHT = 1
         BG = "white"
         FG = "black"
         XPOZ = 400
         YPOZ = 100
-        self.bf = ButtonsFabric(xpoz=XPOZ,ypoz=YPOZ,width=WIDTH,height=HEIGHT,
-                   bg=BG,fg=FG)
+        self.bf = ButtonsFabric(
+            xpoz=XPOZ, ypoz=YPOZ, width=WIDTH, height=HEIGHT, bg=BG, fg=FG
+        )
         self.bf.use_return = False
         self.bf.title = self.title
         for tag, text in self.menu_data:
             action_obj = Action(tag, self.bf, self)
             self.bf.add_button(text, action_obj.do_action)
-        action_obj = Action('0', self.bf, self)
-        self.bf.add_button('Exit', action_obj.do_action)
+        action_obj = Action("0", self.bf, self)
+        self.bf.add_button("Exit", action_obj.do_action)
         self.bf.finalize()
         self.bf.root.destroy()
         return self.return_tag
@@ -58,6 +59,7 @@ class MenuConsoleDialog(MenuBase):
 
     def __init__(self):
         from dialog import Dialog
+
         self.d_obj = Dialog(dialog="dialog")
         self.title = ""
         self.menu_data = []
@@ -65,8 +67,9 @@ class MenuConsoleDialog(MenuBase):
     def draw_menu(self):
         code, tag = self.d_obj.menu(self.title, choices=self.menu_data)
         if code == "cancel":
-            return '0'
+            return "0"
         return tag
+
 
 class MenuConsole(MenuBase):
 
@@ -85,9 +88,9 @@ class MenuConsole(MenuBase):
             print(f"\t{tag}: {item_name}")
         print("\t--------------------")
         user_input = input("\tEnter a number or 'q' to quit: \n")
-        if user_input == 'q':
+        if user_input == "q":
             self.clear_screen()
-            return '0'
+            return "0"
         return user_input
 
 
@@ -119,7 +122,7 @@ class ProcessMenu:
                 self.action(tag)
 
     def remove_number_from_menu_item(self, menu_item):
-        corrected_item = sub('^[0-9][0-9]_', "", menu_item)
+        corrected_item = sub("^[0-9][0-9]_", "", menu_item)
         return corrected_item
 
     def get_menu_item_from_file(self, fname):
@@ -128,7 +131,7 @@ class ProcessMenu:
         for line in fileinput.input([fname]):
             line = line.strip()
             if line.startswith(prefix):
-                item_name = line.replace(prefix, "").strip("\"")
+                item_name = line.replace(prefix, "").strip('"')
         if not item_name:
             item_name = fname.rsplit(os.sep, 1)[-1]
             item_name = self.remove_number_from_menu_item(item_name)
@@ -193,12 +196,10 @@ class ProcessMenu:
 
 
 def menu_obj_fabric(menu_class):
-    if menu_class == 'MenuConsole':
+    if menu_class == "MenuConsole":
         return MenuConsole()
-    if menu_class == 'MenuConsoleDialog':
+    if menu_class == "MenuConsoleDialog":
         return MenuConsoleDialog()
-    if menu_class == 'MenuTk':
+    if menu_class == "MenuTk":
         return MenuTk()
     return None
-
-

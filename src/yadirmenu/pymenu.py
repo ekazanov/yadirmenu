@@ -13,6 +13,7 @@ YPOZ = 100
 
 from tkinter import Tk, Button, W, CENTER, Label
 
+
 class Action:
 
     def __init__(self, tag, bf_obj, menu_tk_obj):
@@ -24,27 +25,40 @@ class Action:
         self.menu_tk_obj.return_tag = self.tag
         self.bf_obj.root.quit()
 
+
 class MenuButton(object):
 
-    def __init__(self,root,text,cmd,w,h,bg="white",fg="blue",
-                 highlight_bg="black"):
-        self.but = Button(root,text=text,width=w,height=h,bg=bg ,fg=fg,
-                          highlightcolor = highlight_bg,
-                          highlightthickness = 2,
-
-                          anchor=W)
+    def __init__(
+        self, root, text, cmd, w, h, bg="white", fg="blue", highlight_bg="black"
+    ):
+        self.but = Button(
+            root,
+            text=text,
+            width=w,
+            height=h,
+            bg=bg,
+            fg=fg,
+            highlightcolor=highlight_bg,
+            highlightthickness=2,
+            anchor=W,
+        )
         self.cmd = cmd
-        self.but.bind("<Button-1>",self.cmd)
+        self.but.bind("<Button-1>", self.cmd)
         self.but.pack()
 
 
 class ButtonsFabric(object):
 
-    def __init__(self, xpoz=100,ypoz=100,
-                 width=20,height=4,
-                 bg="green",fg="red",
-                 focus_color = FOCUS_COLOR
-             ):
+    def __init__(
+        self,
+        xpoz=100,
+        ypoz=100,
+        width=20,
+        height=4,
+        bg="green",
+        fg="red",
+        focus_color=FOCUS_COLOR,
+    ):
         self.use_return = True
         self.buttons = []
         self.button_cur = 0
@@ -58,11 +72,44 @@ class ButtonsFabric(object):
         self.fg = fg
         self.focus_color = focus_color
         self.keys = {}
-        self.bind_keys = ['1','2','3','4','5','6','7','8',
-                          '9','0','q','w','e','r','t','y',
-                          'u','i','o','p','a','s','d','f',
-                          'g','h','j','k','l','z','x','c',
-                          'v','b','n','m']
+        self.bind_keys = [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "0",
+            "q",
+            "w",
+            "e",
+            "r",
+            "t",
+            "y",
+            "u",
+            "i",
+            "o",
+            "p",
+            "a",
+            "s",
+            "d",
+            "f",
+            "g",
+            "h",
+            "j",
+            "k",
+            "l",
+            "z",
+            "x",
+            "c",
+            "v",
+            "b",
+            "n",
+            "m",
+        ]
         self.bind_keys_cnt = 0
         self.key_symbpol_pressed = ""
         self.keys["Up"] = self.key_up
@@ -98,13 +145,21 @@ class ButtonsFabric(object):
     def add_button(self, text, cmd):
         key = self.bind_keys[self.bind_keys_cnt]
         self.bind_keys_cnt += 1
-        text = "%s        %s" % (key,text)
-        btn = MenuButton(self.root, text, cmd, self.width, self.height,
-                         bg=self.bg, fg=self.fg,highlight_bg=self.focus_color)
+        text = "%s        %s" % (key, text)
+        btn = MenuButton(
+            self.root,
+            text,
+            cmd,
+            self.width,
+            self.height,
+            bg=self.bg,
+            fg=self.fg,
+            highlight_bg=self.focus_color,
+        )
         self.buttons.append(btn)
         self.keys[key] = self.key_symbol
 
-    def key(self,event):
+    def key(self, event):
         self.key_symbpol_pressed = event.keysym
         try:
             self.keys[event.keysym]()
@@ -121,20 +176,20 @@ class ButtonsFabric(object):
 def main():
 
     class Menu:
-        return_tag = '0'
+        return_tag = "0"
 
     menu_obj = Menu()
-    bf = ButtonsFabric(xpoz=XPOZ,ypoz=YPOZ,width=WIDTH,height=HEIGHT,
-                       bg=BG,fg=FG)
+    bf = ButtonsFabric(xpoz=XPOZ, ypoz=YPOZ, width=WIDTH, height=HEIGHT, bg=BG, fg=FG)
     bf.use_return = False
     bf.title = "Test title"
-    action_obj = Action('1', bf, menu_obj)
-    bf.add_button('Tag = 1', action_obj.do_action)
-    action_obj = Action('2', bf, menu_obj)
-    bf.add_button('Tag = 2', action_obj.do_action)
+    action_obj = Action("1", bf, menu_obj)
+    bf.add_button("Tag = 1", action_obj.do_action)
+    action_obj = Action("2", bf, menu_obj)
+    bf.add_button("Tag = 2", action_obj.do_action)
     bf.finalize()
     print(f"Pressed tad = {menu_obj.return_tag}")
     sys.exit(0)
+
 
 if __name__ == "__main__":
     main()
