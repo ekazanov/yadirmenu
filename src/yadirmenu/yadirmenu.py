@@ -1,10 +1,11 @@
-import sys
-import os
-import glob
 import fileinput
-from re import sub
-from dotenv import dotenv_values
+import glob
+import os
+import sys
 import time
+from re import sub
+
+from dotenv import dotenv_values
 
 menu_path = "/home/evgeny/projects/132_dirmenu/src/menu_test"
 
@@ -31,8 +32,7 @@ class MenuTk(MenuBase):
         self.return_tag = "0"
 
     def draw_menu(self):
-        from yadirmenu.pymenu import Action
-        from yadirmenu.pymenu import ButtonsFabric
+        from yadirmenu.pymenu import Action, ButtonsFabric
 
         WIDTH = 50
         HEIGHT = 1

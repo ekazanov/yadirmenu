@@ -1,10 +1,9 @@
 __author__ = "Evgeny Kazanov"
 
-import sys
 import argparse
+import sys
 
-from yadirmenu.yadirmenu import menu_obj_fabric
-from yadirmenu.yadirmenu import ProcessMenu
+from yadirmenu.yadirmenu import ProcessMenu, menu_obj_fabric
 
 
 def process_args():

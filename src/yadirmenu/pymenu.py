@@ -1,6 +1,7 @@
 #! /usr/bin/python3
 # -*- coding: utf-8 -*-
-import os, sys
+import os
+import sys
 
 WIDTH = 30
 HEIGHT = 1
@@ -11,7 +12,7 @@ XPOZ = 400
 YPOZ = 100
 
 
-from tkinter import Tk, Button, W, CENTER, Label
+from tkinter import CENTER, Button, Label, Tk, W
 
 
 class Action:
