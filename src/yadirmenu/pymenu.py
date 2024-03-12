@@ -1,7 +1,6 @@
 #! /usr/bin/python3
 # -*- coding: utf-8 -*-
 import sys
-
 from tkinter import Button, Tk, W
 
 WIDTH = 30
