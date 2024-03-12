@@ -89,7 +89,7 @@ class MenuConsole(MenuBase):
         for tag, item_name in self.menu_data:
             print(f"\t{tag}: {item_name}")
         print("\t--------------------")
-        user_input = input("\tEnter a number or 'q' to quit: \n")
+        user_input = input("\tEnter a number or 'q' to quit: \n\t> ")
         if user_input == "q":
             self.clear_screen()
             return "0"
