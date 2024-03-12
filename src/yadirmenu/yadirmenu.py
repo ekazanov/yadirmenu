@@ -27,11 +27,11 @@ class MenuBase:
         """Draw menu method. To be overwritten."""
         return 0
 
+
 class MenuTk(MenuBase):
 
     def __init__(self):
         self.return_tag = "0"
-
 
     def draw_menu(self):
         from yadirmenu.pymenu import ButtonsFabric
@@ -54,9 +54,6 @@ class MenuTk(MenuBase):
         bf.add_button("Exit", action_obj.do_action)
         bf.finalize()
         bf.root.destroy()
-
-
-
         return self.return_tag
 
 

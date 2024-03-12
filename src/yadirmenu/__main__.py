@@ -7,7 +7,8 @@ from yadirmenu.yadirmenu import ProcessMenu, menu_obj_fabric
 
 def process_args():
     choices = ["MenuConsole", "MenuConsoleDialog", "MenuTk"]
-    parser = argparse.ArgumentParser(description="Roulette startegy testing program.")
+    parser = argparse.ArgumentParser(
+        description="Menu based on directory tree.")
     parser.add_argument(
         "--menu_dir",
         "-m",
