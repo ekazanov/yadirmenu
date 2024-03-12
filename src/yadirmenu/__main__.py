@@ -17,22 +17,10 @@ def process_args():
                         metavar='STRING', help="Inteface type. Allowed values: " \
                         + ", ".join(choices))
     args = parser.parse_args()
-    print(f"args = {args}")
     return args
 
 def main():
     args = process_args()
-
-    print("main()")
-    print(f"args = {args}")
-    MENU_TYPE = 'MenuConsole'
-    MENU_TYPE = 'MenuConsoleDialog'
-    MENU_TYPE = 'MenuTk'
-
-    # menu_obj = menu_obj_fabric(MENU_TYPE)
     menu_obj = menu_obj_fabric(args.interface)
-    menu_path = "/home/evgeny/projects/132_yadirmenu/src/menu_test"
-    # process_menu = ProcessMenu(menu_root_path=menu_path,
-    #                        menu_object=menu_obj)
     process_menu = ProcessMenu(menu_root_path=args.menu_dir,
                            menu_object=menu_obj)
