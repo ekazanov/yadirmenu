@@ -1,7 +1,6 @@
 __author__ = "Evgeny Kazanov"
 
 import argparse
-import sys
 
 from yadirmenu.yadirmenu import ProcessMenu, menu_obj_fabric
 
@@ -34,4 +33,4 @@ def process_args():
 def main():
     args = process_args()
     menu_obj = menu_obj_fabric(args.interface)
-    process_menu = ProcessMenu(menu_root_path=args.menu_dir, menu_object=menu_obj)
+    ProcessMenu(menu_root_path=args.menu_dir, menu_object=menu_obj)
