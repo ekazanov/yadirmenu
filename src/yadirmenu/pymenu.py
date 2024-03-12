@@ -1,7 +1,8 @@
 #! /usr/bin/python3
 # -*- coding: utf-8 -*-
-import os
 import sys
+
+from tkinter import Button, Tk, W
 
 WIDTH = 30
 HEIGHT = 1
@@ -12,7 +13,6 @@ XPOZ = 400
 YPOZ = 100
 
 
-from tkinter import CENTER, Button, Label, Tk, W
 
 
 class Action:
@@ -22,12 +22,12 @@ class Action:
         self.bf_obj = bf_obj
         self.menu_tk_obj = menu_tk_obj
 
-    def do_action(self, event):
+    def do_action(self, event): # # pylint: disable=W0613
         self.menu_tk_obj.return_tag = self.tag
         self.bf_obj.root.quit()
 
 
-class MenuButton(object):
+class MenuButton:
 
     def __init__(
         self, root, text, cmd, w, h, bg="white", fg="blue", highlight_bg="black"
@@ -48,7 +48,7 @@ class MenuButton(object):
         self.but.pack()
 
 
-class ButtonsFabric(object):
+class ButtonsFabric:
 
     def __init__(
         self,
@@ -66,7 +66,7 @@ class ButtonsFabric(object):
         self.root = Tk()
         self.title = "PyMenu"
         self.root.title(self.title)
-        self.root.geometry("+%s+%s" % (xpoz, ypoz))
+        self.root.geometry(f"+{xpoz}+{ypoz}")
         self.width = width
         self.height = height
         self.bg = bg
@@ -146,7 +146,7 @@ class ButtonsFabric(object):
     def add_button(self, text, cmd):
         key = self.bind_keys[self.bind_keys_cnt]
         self.bind_keys_cnt += 1
-        text = "%s        %s" % (key, text)
+        text = f"{key}        {text}"
         btn = MenuButton(
             self.root,
             text,
