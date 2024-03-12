@@ -27,8 +27,7 @@ class Action:
 class MenuButton:
 
     def __init__(
-        self, root, text, cmd, w, h, bg="white",
-            fg="blue", highlight_bg="black"
+        self, root, text, cmd, w, h, bg="white", fg="blue", highlight_bg="black"
     ):
         self.but = Button(
             root,
@@ -178,8 +177,9 @@ def main():
         return_tag = "0"
 
     menu_obj = Menu()
-    bf = ButtonsFabric(xpoz=XPOZ, ypoz=YPOZ, width=WIDTH,
-                       height=HEIGHT, bg=BG, fg=FG)
+    bf = ButtonsFabric(
+        xpoz=XPOZ, ypoz=YPOZ, width=WIDTH, height=HEIGHT, bg=BG, fg=FG
+    )
     bf.use_return = False
     bf.title = "Test title"
     action_obj = Action("1", bf, menu_obj)

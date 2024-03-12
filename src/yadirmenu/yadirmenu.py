@@ -35,6 +35,7 @@ class MenuTk(MenuBase):
 
     def draw_menu(self):
         from yadirmenu.pymenu import Action, ButtonsFabric
+
         width = 50
         height = 1
         bg = "white"
