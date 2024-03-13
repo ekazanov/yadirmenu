@@ -31,19 +31,6 @@ With this menu, users can:
 
 ** How:
 
-- User creates a directory that contains subdirectories for submenus
-  and scripts for menu ytems.
-- User runs yadirmenu pointing this menu directory like this
-#+BEGIN_SRC sh
-yadirmenu --menu_dir "/path/to/menu/dir" --interface "Interface type"
-#+END_SRC
-Where "Interface type can be one of:
-- "MenuConsole": It uses old good plain console print/read interface.
-- "MenuConsole": It uses console "Dialog" library.
-- "MenuTk": It uses tkinter python GUI library.
-
-** How:
-
 The user creates a directory containing subdirectories for submenus
 and scripts for menu items.
 
@@ -53,11 +40,6 @@ directory and interface type:
 #+BEGIN_SRC sh
 yadirmenu --menu_dir "/path/to/menu/dir" --interface "Interface type"
 #+END_SRC
-
-
-sh
-Copy code
-yadirmenu --menu_dir "/path/to/menu/dir" --interface "Interface type"
 
 where "Interface type" can be one of:
 "MenuConsole": It uses the old, reliable plain console print/read interface.
