@@ -1,0 +1,11 @@
+* What is Yadurmenu
+The main goal of an Yadirmenu is to create a simple menu interface for
+the set of user's scripts and documents. Given a directory tree the
+Yadirmenu creates a menu. In this menu directories are represented as
+submenus and scripts are represented as the menu items.
+
+Given this menu one can:
+- Navigate through menu/submenus.
+- Start scripts.
+- Exit menu.
+

@@ -1,2 +1,0 @@
-# yadirmenu
-Yet another dirmenu
