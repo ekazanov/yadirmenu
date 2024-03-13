@@ -82,4 +82,5 @@ interface type.
 
 *** Termux
 
-On Termux, I use a TermuxWidget to run the Termux console and a "Yadirmenu".
+On Termux, I use a TermuxWidget to run the Termux console and a
+"Yadirmenu". On Termux, I use the “MenuDialog” interface type.
