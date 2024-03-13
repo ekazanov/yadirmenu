@@ -1,11 +1,30 @@
-* What is Yadurmenu
-The main goal of an Yadirmenu is to create a simple menu interface for
-the set of user's scripts and documents. Given a directory tree the
-Yadirmenu creates a menu. In this menu directories are represented as
-submenus and scripts are represented as the menu items.
+* Yadirmenu
 
-Given this menu one can:
-- Navigate through menu/submenus.
-- Start scripts.
-- Exit menu.
+** What the "Yadirmenu" name means:
 
+"Yadirmenu" stands for "Yet Another Dirmenu."
+
+** Why:
+
+The goal of creating Yadirmenu was to provide a simple menu interface
+that can be run on different platforms as a frontend for user scripts
+and/or documents.
+
+Currently, Yadirmenu can be used on the following platforms:
+
+- Linux
+- Termux (Terminal for Android)
+- Possibly Windows (although it has not been tested)
+
+** What:
+
+Yadirmenu is designed to create a menu for a set of user scripts and
+documents. Given a directory tree, Yadirmenu generates a menu where
+directories are represented as submenus and scripts are represented as
+menu items.
+
+With this menu, users can:
+
+- Navigate through menus and submenus.
+- Execute scripts represented as menu items.
+- Exit the menu.
