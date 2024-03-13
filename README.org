@@ -1,5 +1,7 @@
 * Yadirmenu
 
+Simple but smart yet another menu interface.
+
 ** What the "Yadirmenu" name means:
 
 "Yadirmenu" stands for "Yet Another Dirmenu."
