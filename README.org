@@ -45,3 +45,41 @@ where "Interface type" can be one of:
 - "MenuConsole": It uses the old, reliable plain console print/read interface.
 - "MenuDialog": It utilizes the console "Dialog" library.
 - "MenuTk": It employs the Tkinter Python GUI library.
+
+** Requirements
+
+- python3
+- pythondialog
+- python-dotenv
+
+** Installation (using virtualenv)
+
+#+BEGIN_SRC sh
+    mkdir yadirmenu
+    cd yadirmenu
+    git clone https://github.com/ekazanov/yadirmenu.git
+    python3 -m venv ./venv
+    source ./venv/bin/activate
+    python3 -m pip install --upgrade pip
+    cd yadirmenu; pip install .
+#+END_SRC
+
+** Invocation
+
+#+BEGIN_SRC sh
+  cd yadirmenu
+  source ./venv/bin/activate
+  yadirmenu --menu_dir "/path/to/menu/dir" --interface "Interface type"
+#+END_SRC
+
+** Usage Tips
+
+*** Linux
+
+On Linux, I bind a script starting Yadirmenu to some shortcut keys. My
+favorite binding keys are "Alt-Ctrl-1". On Linux, I use the "MenuTk"
+interface type.
+
+*** Termux
+
+On Termux, I use a TermuxWidget to run the Termux console and a "Yadirmenu".
