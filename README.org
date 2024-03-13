@@ -42,6 +42,6 @@ yadirmenu --menu_dir "/path/to/menu/dir" --interface "Interface type"
 #+END_SRC
 
 where "Interface type" can be one of:
-"MenuConsole": It uses the old, reliable plain console print/read interface.
-"MenuDialog": It utilizes the console "Dialog" library.
-"MenuTk": It employs the Tkinter Python GUI library.
+- "MenuConsole": It uses the old, reliable plain console print/read interface.
+- "MenuDialog": It utilizes the console "Dialog" library.
+- "MenuTk": It employs the Tkinter Python GUI library.
