@@ -31,6 +31,7 @@ With this menu, users can:
 
 ** How:
 
+*** Yadirmenu working logic
 The user creates a directory containing subdirectories for submenus
 and scripts for menu items.
 
@@ -45,6 +46,54 @@ where "Interface type" can be one of:
 - "MenuConsole": It uses the old, reliable plain console print/read interface.
 - "MenuDialog": It utilizes the console "Dialog" library.
 - "MenuTk": It employs the Tkinter Python GUI library.
+
+*** Customization Options
+
+Yadirmenu offers customization options to tailor the menu appearance
+and item names according to user preferences. These options are
+defined within special files named ".META" located within each
+directory.
+
+*** Directory Metadata
+
+Every directory can contain a ".META" file, which dictates the display
+title and item names within the menu. The ".META" file structure is as
+follows:
+
+#+BEGIN_SRC sh
+TITLE="Menu/Documents"
+ITEM_NAME="Documents"
+#+END_SRC
+
+- The "TITLE" value is used as a menu title line.
+- The "ITEM_NAME" value is used as a submenumenu item name.
+
+In the root directory the ".META" file contains the "TITLE" field
+only.
+
+*** Script Customization:
+
+Script files can include a special line to customize the menu item
+name:
+
+#+BEGIN_SRC sh
+#MENU_ITEM_NAME="Menu item text"
+#+END_SRC
+
+- The value of the "MENU_ITEM_NAME" is used as a menu item name for
+  the script.
+- If this line is not present, the script file name is used as the
+  item name.
+
+Naming Convention
+
+Script and subdirectory names follow a specific format:
+
+#+BEGIN_SRC sh
+"XX_script_file_name"
+#+END_SRC
+
+- "XX" represents a number used for sorting menu items.
 
 ** Requirements
 
