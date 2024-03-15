@@ -194,7 +194,6 @@ class ProcessMenu:
             self.change_current_dir(tag)
         if item_type == "f":
             os.system(file_name)
-            time.sleep(5)
 
 
 def menu_obj_fabric(menu_class):
