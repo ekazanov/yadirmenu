@@ -121,7 +121,6 @@ On Linux, I bind a script starting Yadirmenu to some shortcut keys. My
 favorite binding keys are "Alt-Ctrl-1". On Linux, I use the "MenuTk"
 interface type.
 
-
 ### Termux
 
 On Termux, I use a TermuxWidget to run the Termux console and a
