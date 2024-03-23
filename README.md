@@ -107,6 +107,20 @@ Script and subdirectory names follow a specific format:
     python3 -m pip install --upgrade pip
     cd yadirmenu; pip install .
 
+## Installation (termux)
+
+    cd ~
+    pkg install python
+    pip install virtualenv
+    virtualenv venv
+    source venv/bin/activate
+    mkdir tmp
+    cd tmp
+    git clone https://github.com/ekazanov/yadirmenu.git
+    python3 -m pip install --upgrade pip
+    cd yadirmenu; pip install .
+    rm -rf yadirmenu
+
 ## Invocation
 
     cd yadirmenu
