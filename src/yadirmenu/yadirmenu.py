@@ -3,8 +3,7 @@ import glob
 import os
 import sys
 import time
-from re import sub
-
+from re import sub, compile
 from dotenv import dotenv_values
 
 
@@ -112,7 +111,14 @@ class ProcessMenu:
         self.title = "Menu system"
         meta = self.read_meta(self.menu_root_path)
         self.title = meta.get("TITLE", "Menu")
+        # Wrong file names
+        ignore_re_arr = ["#.*#", ".*~"]
+        self.compiled_re_arr = []
+        for ignore_re in ignore_re_arr:
+            print(f"ignore_re = {ignore_re}")
+            self.compiled_re_arr.append(compile(ignore_re))
         self.read_menu_dir(self.menu_root_path)
+        # Main loop
         while True:
             menu_data = []
             for _, tag, item_name, _ in self.menu_data:
@@ -151,6 +157,8 @@ class ProcessMenu:
         # Create a self.menu_data for a current path
         tag = first_tag
         for fname in fnames_arr:
+            if self.wrong_file_name(fname):
+                continue
             item_type = ""
             item_name = ""
             if os.path.isdir(fname):
@@ -165,6 +173,14 @@ class ProcessMenu:
             data_element = (item_type, tag, item_name, fname)
             self.menu_data.append(data_element)
             tag += 1
+
+
+    def wrong_file_name(self, file_name):
+        base_name = file_name.rsplit(os.sep, 1)[-1]
+        for compiled_re in self.compiled_re_arr:
+            if compiled_re.match(base_name):
+                return True
+        return False
 
     def read_meta(self, dir_path):
         meta = dotenv_values(os.path.join(dir_path, ".META"))
