@@ -210,7 +210,7 @@ class ProcessMenu:
             self.change_current_dir(tag)
         if item_type == "f":
             os.system(file_name)
-
+            sys.exit(0)
 
 def menu_obj_fabric(menu_class):
     if menu_class == "MenuConsole":
