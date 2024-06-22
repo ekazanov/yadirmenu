@@ -100,11 +100,13 @@ Script and subdirectory names follow a specific format:
 
 ### System ###
 
-For MenuTk the "dialog" package must be installed.
+For MenuDialog the "dialog" package must be installed.
 
 On Ubuntu one can install it using:
 
     apt-get install dialog
+
+
 
 ## Installation (using virtualenv)
 
