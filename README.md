@@ -45,7 +45,7 @@ directory and interface type:
 where "Interface type" can be one of:
 
 -   "MenuConsole": It uses the old, reliable plain console print/read interface.
--   "MenuDialog": It utilizes the console "Dialog" library.
+-   "MenuConsoleDialog": It utilizes the console "Dialog" library.
 -   "MenuTk": It employs the Tkinter Python GUI library.
 
 ### Customization Options
