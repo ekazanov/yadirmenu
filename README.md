@@ -92,10 +92,19 @@ Script and subdirectory names follow a specific format:
 
 ## Requirements
 
+### Python ###
+
 -   python3
 -   pythondialog
 -   python-dotenv
 
+### System ###
+
+For MenuTk the "dialog" package must be installed.
+
+On Ubuntu one can install it using:
+
+    apt-get install dialog
 
 ## Installation (using virtualenv)
 
