@@ -1,3 +1,3 @@
 #! /bin/bash
 
-yadirmenu -m ./menuroot
+yadirmenu -m ./menuroot $@
