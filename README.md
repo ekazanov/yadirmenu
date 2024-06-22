@@ -106,8 +106,6 @@ On Ubuntu one can install it using:
 
     apt-get install dialog
 
-
-
 ## Installation (using virtualenv)
 
     mkdir yadirmenu
