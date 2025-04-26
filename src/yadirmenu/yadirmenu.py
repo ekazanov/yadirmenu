@@ -61,12 +61,13 @@ class MenuConsoleDialog(MenuBase):
     def __init__(self):
         from dialog import Dialog
 
-        self.d_obj = Dialog(dialog="dialog")
+        self.d_obj = Dialog(dialog="dialog", autowidgetsize=True)
         self.title = ""
         self.menu_data = []
 
     def draw_menu(self):
-        code, tag = self.d_obj.menu(self.title, choices=self.menu_data)
+        code, tag = self.d_obj.menu(
+            self.title, menu_height=len(self.menu_data), choices=self.menu_data)
         if code == "cancel":
             return "0"
         return tag
